@@ -3,27 +3,90 @@
 :Date: March 8, 2012
 
 * Title
-  ** Title
-  ** Presenter
-  ** Twitter Info
-  ** web address
+  ** Title - Building CDI Extensions using Apache DeltaSpike
+  ** Presenter - Jason Porter Senior Software Engineer, JBoss by Red Hat
+  ** Twitter Info - @lightguardjp
+  ** web address - if I get it all setup lightguardjp.info
 * CDI Intro
   ** What does CDI do for us?
+    *** discover and resolve beans
+    *** manage a bean's lifecycle
+    *** injection
+    *** bind a bean to a context
+    *** Strong typing
+    *** loose coupling
+    *** bean metadata
   ** What is life like without CDI?
+    *** new ....() / reflection
+    *** loose typed injection (Seam 2, Spring, etc)
+    *** JNDI lookup
+    *** Session or Request lookup / storage
+    *** Tight coupling to libraries
   ** What is life like with CDI?
+    *** Minimal configuration
+    *** Compiler checked mistakes
+    *** Fail Fast - deploy time
+    *** Standard injection
+    *** Multiple Scopes
+    *** Very loose coupling to libraries
   ** How does it improve the development experience?
+    *** Very quick ramp up
+    *** Great tooling
+      **** IntelliJ
+      **** JBoss Tools
+      **** NetBeans
+    *** Simplicity 
+      **** `@Inject`
+      **** `@Produces`
+    *** Useful at all stages
+      **** Development
+      **** Testing
+      **** Production
+      **** Alternatives, Scopes
+    *** Improved productivity
+      **** Interceptors
+      **** Decorators
+      **** Eventing
+      **** Quick feedback
 * What's the Best part?
   ** What isn't there: Extensions
   ** Scopes
   ** 3rd Party Integration
+  ** Anything you can code
 * CDI Extensions
-  ** Explanation
+  ** Explanation & what you can do
+    *** register additional beans
+    *** satisfy injection points
+    *** create new scopes with backings
+    *** modify bean metadata
+  ** How do Extensions work
   ** Application lifecycle of a CDI Application and callbacks (look into CSS arrows)
+    *** Deploy Application
+    *** *BeforeBeanDiscovery*
+    *** Scan Archives
+    *** *ProcessAnnotedTypes*
+    *** *ProcessInjectionTargets*
+    *** *ProcessBeans*
+    *** *ProcessProducers*
+    *** *ProcessObserverMethods*
+    *** *AfterBeanDiscovery*
+    *** *AfterDeploymentValidation*
+    *** Application Running
+    *** *BeforeShutdown*
+    *** Undeploy Application
 * DeltaSpike Introduction
   ** History
+    *** MyFaces CODI / Orchestra
+    *** Seam 3
   ** Contributors
     *** Companies involved
+      **** Red Hat
+      **** Oracle
+      **** SoftwareMill
+      **** CDI Source
     *** Individuals
+      **** Apache Contributors
+      **** John Ament, Antoine Sabot-Durand, Christian Kaltepoth, Lukasz Lenart
   ** Tests
   ** Compatibility
     *** Weld
