@@ -1,0 +1,51 @@
+= DevNexus 2012 - Building CDI Extensions using Apache DeltaSpike =
+:Author: Jason Porter <lightguard.jp@gmail.com>
+:Date: March 8, 2012
+
+* Title
+  ** Title
+  ** Presenter
+  ** Twitter Info
+  ** web address
+* CDI Intro
+  ** What does CDI do for us?
+  ** What is life like without CDI?
+  ** What is life like with CDI?
+  ** How does it improve the development experience?
+* What's the Best part?
+  ** What isn't there: Extensions
+  ** Scopes
+  ** 3rd Party Integration
+* CDI Extensions
+  ** Explanation
+  ** Application lifecycle of a CDI Application and callbacks (look into CSS arrows)
+* DeltaSpike Introduction
+  ** History
+  ** Contributors
+    *** Companies involved
+    *** Individuals
+  ** Tests
+  ** Compatibility
+    *** Weld
+    *** OWB
+    *** Resin (coming soon)
+    *** AS7
+    *** WebLogic 12c
+    *** Glassfish
+    *** TomEE
+    *** WebSphere (done?)
+* DeltaSpike Extensions and Status
+  ** Extension Author aids
+    *** Activation
+    *** AnnotatedTypeBuilder
+  ** General Aids
+    *** Stages
+    *** Exclude
+    *** BeanProvider
+    *** BeanManagerProvider
+  ** Road Map
+    *** Exception Control
+    *** Security
+    *** JPA
+    *** JSF
+
