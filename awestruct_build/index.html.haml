@@ -2,4 +2,96 @@
 layout: impress_basic
 title: Home
 ---
+#title.step.slide{:data=>{:x=>"-1000", :y=>"-1500"}}
+  %img#logo{:width=>"329", :height=>"63", :alt=>"JBoss by Red Hat", :src=>"images/RH-JBoss-reverse_RGB.png"}
+  %br
+  #presentation_title.centered
+    Building CDI Extensions using Apache DeltaSpike
+  .presentation_info
+    Jason Porter 
+    %br
+    Senior Software Engineer, JBoss by Red Hat
+    %br
+    :textile
+      @@lightguardjp@
+    %br
+    community.jboss.org/people/lightguard
+#what_cdi.centered.step.slide{:data=>{:x=>"-150", :y=>"-1500", :scale=>"2", :rotate=>"270"}}
+  What does CDI (Contexts and Dependency Injection) do for us?
+#what_cdi_context.what_cdi_detail.slide.step{:data=>{:x=>"-300", :y=>"-1710", :scale=>"0.1"}}
+  %span.underline Context
+  %br
+  %ul
+    %li Manage a bean's lifecycle
+    %li Bind a bean to a context
+#what_cdi_dependency.what_cdi_detail.slide.step{:data=>{:x=>"-300", :y=>"-1780", :scale=>"0.1"}}
+  %span.underline Dependency
+  %br
+  %ul
+    %li Discover and resolve
+    %li Bean Metadata
+    %li Loose coupling
+#what_cdi_injection.what_cdi_detail.slide.step{:data=>{:x=>"-300", :y=>"-1830", :scale=>"0.1"}}
+  %span.underline Injection
+  %br
+  %ul
+    %li Injection
+    %li Strong typing
+#without_cdi.slide.step{:data=>{:x=>"700", :y=>"-1500"}}
+  .larger
+    Life without CDI
+  %ul
+    %li constructor injection
+    %li{:data=>{:jmpress=>"warp-left"}} setter injection
+    %li{:data=>{:jmpress=>"fade after 750ms"}} string based injection (Seam 2 / Spring)
+    %li{:data=>{:jmpress=>"drive-right after 500ms"}} JNDI lookups
+    %li{:data=>{:jmpress=>"drive-down after 750ms"}} Session / Request lookup and storage
+    %li{:data=>{:jmpress=>"zoom after 1000ms"}} Tight coupling to 3rd party libraries
+#life_with_cdi.slide.step{:data=>{:x=>"700", :y=>"-1500", :scale=>"0.02"}}
+  .larger
+    Life with CDI
+  %ul
+    %li Minimal configuration
+    %li Compiler checked mistakes
+    %li Fail fast at deploy time
+    %li Standardized Injection
+    %li Multiple scopes
+    %li Very loose coupling to 3rd party libraries
+#improve_dev_exp.slide.step{:data=>{:x=>"1550", :y=>"-1500"}}
+  .larger
+    How does CDI improve the Development Experience?
+  #ramp_up.dev_exp_child.slide.step{:data=>{:x=>"-300", :y=>"-100", :scale=>"0.4"}}
+    .larger Easy &amp; smooth ramp up
+  #tooling.child.slide.step{:data=>{:x=>"200", :y=>"-100", :scale=>"0.4"}}
+    .larger Great Tooling support
+    %img{:src=>"images/netbeans.png", :width=>"206", :height=>"45", :alt=>"NetBeans"}
+    %img{:src=>"images/jbosstools_horiz_200.png", :width=>"200", :height=>"50", :alt=>"JBoss Tools", :style=>"float:right"}
+    %br/
+    %img{:src=>"images/logo_idea_small.gif", :width=>"130", :height=>"25", :alt=>"IntelliJ IDEA", :style=>"left:40%;position:absolute"}
+  #simplicity.child.slide.step{:data=>{:x=>"-300", :y=>"100", :scale=>"0.4"}}
+    .larger Simplicity
+    :textile
+      * @@Inject@
+      * @@Produces@
+  #useful.child.slide.step{:data=>{:x=>"-100", :y=>"100", :scale=>"0.4"}}
+    .larger Useful at every stage
+    %ul
+      %li Development
+      %li Testing -- Arquillian
+      %li Production
+      %li Alternatives, Specialization
+  #productivity.child.slide.step{:data=>{:x=>"200", :y=>"100", :scale=>"0.4"}}
+    .larger Improve Productivity
+    %ul
+      %li{:data=>{:jmpress=>"appear"}} Interceptors
+      %li{:data=>{:jmpress=>"appear"}} Decorators
+      %li{:data=>{:jmpress=>"appear"}} Events
+      %li{:data=>{:jmpress=>"appear"}} Quick Feedback
+#best_part.slide.step{:data=>{:x=>"200", :y=>"300", :scale=>"5"}}
+  .larger Wait! There's more
+  .centered{:data=>{:jmpress=>"zoom"}} 
+    The best part is what isn't there
+    %br/
+    %img{:src=>"images/portable_extensions.png", :alt=>"Portable Extensions", :width=>"388", :height=>"300"}
+
 

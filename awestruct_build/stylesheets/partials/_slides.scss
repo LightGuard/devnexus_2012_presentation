@@ -1,0 +1,46 @@
+.larger {
+  font-size: 52px;
+}
+
+#title {
+  width: 900px;
+  height: 740px;
+  background: url("../images/RHT_JBoss_background.png") no-repeat;
+  #logo {
+    position: absolute;
+    top: 10%;
+  }
+  #presentation_title {
+    position: absolute;
+    top: 30%;
+  }
+  .presentation_info {
+    position: absolute;
+    font-size: 28px;
+    bottom: 30px;
+  }
+
+}
+
+#what_cdi {
+  width: 600px;
+}
+
+.what_cdi_detail {
+  width: 700px;
+}
+
+#without_cdi, #life_with_cdi, #improve_dev_exp {
+  width: 900px;
+  font-size: 40px;
+}
+
+#improve_dev_exp {
+  height: 600px;
+
+  .dev_exp_child.active {
+    width: 700px;
+    font-size: 40px;
+  }
+}
+
