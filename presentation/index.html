@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='Apache DeltaSpike' name='description' />
+    <meta content='Jason Porter' name='author' />
+    <meta content='CDI, Java EE, DeltaSpike, DevNexus' name='keywords' />
+    <meta content='width=1024' name='viewport' />
+    <link href='stylesheets/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
+    <script src='scripts/jquery.min.js' type='text/javascript'></script>
+    <script src='scripts/jmpress.all.min.js' type='text/javascript'></script>
+    <title>
+      DevNexus 2012 - Building CDI Extensions with Apache DeltaSpike
+    </title>
+    <body class='jmpress-not-supported'>
+      <div class='fallback-message'>
+        <p>Your browser <em>does not support the features required</em> by
+        impress.js, so you are presented with a simplified version of this
+        presentation.</p>
+        
+        <p>For the best experience please use the latest <em>Chrome</em> or <em>Safari</em>
+        or <em>Firefox</em> browser. Upcoming version 10 of Internet Explorer <em>should</em>
+        also handle it.</p>
+      </div>
+      <div id='jmpress'>
+        <div class='step slide' data-x='-1000' data-y='-1500' id='title'>
+          <img alt='JBoss by Red Hat' height='63' id='logo' src='images/RH-JBoss-reverse_RGB.png' width='329' />
+          <br />
+          <div class='centered' id='presentation_title'>
+            Building CDI Extensions using Apache DeltaSpike
+          </div>
+          <div class='presentation_info'>
+            Jason Porter
+            <br />
+            Senior Software Engineer, JBoss by Red Hat
+            <p><code>@lightguardjp</code></p>
+            community.jboss.org/people/lightguard
+          </div>
+        </div>
+        <div class='centered step slide' data-rotate='270' data-scale='2' data-x='-150' data-y='-1500' id='what_cdi'>
+          What does CDI (Contexts and Dependency Injection) do for us?
+        </div>
+        <div class='what_cdi_detail slide step' data-scale='0.1' data-x='-300' data-y='-1710' id='what_cdi_context'>
+          <span class='underline'>Context</span>
+          <br />
+          <ul>
+            <li>Manage a bean's lifecycle</li>
+            <li>Bind a bean to a context</li>
+          </ul>
+        </div>
+        <div class='what_cdi_detail slide step' data-scale='0.1' data-x='-300' data-y='-1780' id='what_cdi_dependency'>
+          <span class='underline'>Dependency</span>
+          <br />
+          <ul>
+            <li>Discover and resolve</li>
+            <li>Bean Metadata</li>
+            <li>Loose coupling</li>
+          </ul>
+        </div>
+        <div class='what_cdi_detail slide step' data-scale='0.1' data-x='-300' data-y='-1830' id='what_cdi_injection'>
+          <span class='underline'>Injection</span>
+          <br />
+          <ul>
+            <li>Injection</li>
+            <li>Strong typing</li>
+          </ul>
+        </div>
+        <div class='slide step' data-x='700' data-y='-1500' id='without_cdi'>
+          <div class='larger'>
+            Life without CDI
+          </div>
+          <ul>
+            <li>constructor injection</li>
+            <li data-jmpress='warp-left'>setter injection</li>
+            <li data-jmpress='fade after 750ms'>string based injection (Seam 2 / Spring)</li>
+            <li data-jmpress='drive-right after 500ms'>JNDI lookups</li>
+            <li data-jmpress='drive-down after 750ms'>Session / Request lookup and storage</li>
+            <li data-jmpress='zoom after 1000ms'>Tight coupling to 3rd party libraries</li>
+          </ul>
+        </div>
+        <div class='slide step' data-scale='0.02' data-x='700' data-y='-1500' id='life_with_cdi'>
+          <div class='larger'>
+            Life with CDI
+          </div>
+          <ul>
+            <li>Minimal configuration</li>
+            <li>Compiler checked mistakes</li>
+            <li>Fail fast at deploy time</li>
+            <li>Standardized Injection</li>
+            <li>Multiple scopes</li>
+            <li>Very loose coupling to 3rd party libraries</li>
+          </ul>
+        </div>
+        <div class='slide step' data-x='1550' data-y='-1500' id='improve_dev_exp'>
+          <div class='larger'>
+            How does CDI improve the Development Experience?
+          </div>
+          <div class='dev_exp_child slide step' data-scale='0.4' data-x='-300' data-y='-100' id='ramp_up'>
+            <div class='larger'>Easy &amp; smooth ramp up</div>
+          </div>
+          <div class='child slide step' data-scale='0.4' data-x='200' data-y='-100' id='tooling'>
+            <div class='larger'>Great Tooling support</div>
+            <img alt='NetBeans' height='45' src='images/netbeans.png' width='206' />
+            <img alt='JBoss Tools' class='right' height='50' src='images/jbosstools_horiz_200.png' width='200' />
+            <br />
+            <img alt='IntelliJ IDEA' height='25' src='images/logo_idea_small.gif' style='left:40%;position:absolute' width='130' />
+          </div>
+          <div class='child slide step' data-scale='0.4' data-x='-300' data-y='100' id='simplicity'>
+            <div class='larger'>Simplicity</div>
+            <ul>
+            	<li><code>@Inject</code></li>
+            	<li><code>@Produces</code></li>
+            </ul>
+          </div>
+          <div class='child slide step' data-scale='0.4' data-x='-100' data-y='100' id='useful'>
+            <div class='larger'>Useful at every stage</div>
+            <ul>
+              <li>Development</li>
+              <li>Testing -- Arquillian</li>
+              <li>Production</li>
+              <li>Alternatives, Specialization</li>
+            </ul>
+          </div>
+          <div class='child slide step' data-scale='0.4' data-x='200' data-y='100' id='productivity'>
+            <div class='larger'>Improve Productivity</div>
+            <ul>
+              <li data-jmpress='appear'>Interceptors</li>
+              <li data-jmpress='appear'>Decorators</li>
+              <li data-jmpress='appear'>Events</li>
+              <li data-jmpress='appear'>Quick Feedback</li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-scale='5' data-x='200' data-y='300' id='best_part'>
+          <div class='larger'>Wait! There's more</div>
+          <div class='centered' data-jmpress='zoom'>
+            The best part is what isn't there
+            <br />
+            <img alt='Portable Extensions' height='300' src='images/portable_extensions.png' width='388' />
+          </div>
+          <div class='footnote' data-jmpress='fade after 500ms'>
+            <p>Photo Credit "Granddad's suitcase" is Copyrighted by Flickr user: <a href="http://www.flickr.com/photos/martin_thomas/5671030308/sizes/l/in/photostream/">Martin Thomas</a> under the Creative Commons Attribution license.</p>
+          </div>
+        </div>
+        <div class='slide step' data-x='100' data-y='600' id='what_can_do'>
+          <div class='centered larger'>
+            What can CDI Extensions do?
+            <div class='smaller'>
+              <ul>
+                <li>Register additional beans</li>
+                <li>Satisfy Injection Points</li>
+                <li>Create new Scopes and backings</li>
+                <li>Modify Bean metadata</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='slide step' data-scale='0.5' data-x='1800' data-y='1600' id='secret_ingredient'>
+          <img alt='Secret Ingredient' class='right' height='190' src='images/secret_ingredient.png' width='129' />
+          <div class='centered'>
+            What is the secret ingredient?
+          </div>
+          <br />
+          <div class='footnote'>
+            <p>Photo Credit "chemistry" is Copyrighted by Flickr user: <a href="http://www.flickr.com/photos/martin_thomas/5671030308/sizes/l/in/photostream/">Martin Thomas</a> under the Creative Commons Attribution license.</p>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-x='4300' data-y='1850' id='deploy_application'>
+          Deploy Application
+        </div>
+        <div class='lifecycle slide step' data-rotate='-27' data-x='4250' data-y='1500' id='before_bean_discovery'>
+          Before Bean Discovery
+          <div class='smallest'>
+            <div class='left'>
+              <ul>
+                <li>add scope</li>
+                <li>add annotated type</li>
+                <li>add qualifier</li>
+              </ul>
+            </div>
+            <div class='right'>
+              <ul>
+                <li>add interceptor binding</li>
+                <li>add stereotype</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-54' data-x='4000' data-y='1050' id='deploy_application'>
+          Scan Archives
+        </div>
+        <div class='lifecycle slide step' data-rotate='-81' data-x='3600' data-y='900' id='process_annotated_types'>
+          Process Annotated Types
+          <div class='smaller'>
+            <ul>
+              <li>veto bean candidate</li>
+              <li>replace annotated type</li>
+            </ul>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-108' data-x='3100' data-y='900' id='process_injection_targets'>
+          Process Injection Targets
+          <div class='smaller'>
+            <ul>
+              <li>replace injection targets</li>
+            </ul>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-135' data-x='2800' data-y='1270' id='process_beans'>
+          Process Beans
+          <div class='smaller'>
+            <ul>
+              <li>prepare additional beans</li>
+            </ul>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-162' data-x='2650' data-y='1600' id='process_producer'>
+          Process Producer
+          <div class='smaller'>
+            <ul>
+              <li>modify producer</li>
+            </ul>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-189' data-x='2600' data-y='2000' id='process_observer'>
+          Process Observer
+        </div>
+        <div class='lifecycle slide step' data-rotate='-216' data-x='2750' data-y='2350' id='after_bean_discovery'>
+          After Bean Discovery
+          <div class='smallest'>
+            <div class='left'>
+              <ul>
+                <li>add bean</li>
+                <li>add observer method</li>
+              </ul>
+            </div>
+            <div class='right'>
+              <ul>
+                <li>add context</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-243' data-x='3150' data-y='2550' id='after_deployment_validation'>
+          After Deployment Validation
+          <div class='smaller'>
+            <ul>
+              <li>assessment</li>
+            </ul>
+          </div>
+        </div>
+        <div class='lifecycle slide step' data-rotate='-270' data-x='3600' data-y='2590' id='application_running'>
+          Application Running
+        </div>
+        <div class='lifecycle slide step' data-rotate='-297' data-x='3950' data-y='2550' id='before_shutdown'>
+          Before Shutdown
+        </div>
+        <div class='lifecycle slide step' data-rotate='-324' data-x='4200' data-y='2270' id='undeploy'>
+          Undeploy Application
+        </div>
+        <div class='slide step' data-rotate='270' data-x='2800' data-y='-1000' id='deltaspike'>
+          <div class='centered'>
+            Apache DeltaSpike
+            <br />
+            <div class='smaller'>
+              We believe the community can create awesome extensions and easily share them
+              <br />
+              <br />
+              These extensions close the gaps
+            </div>
+          </div>
+        </div>
+        <div class='slide step' data-rotate='270' data-x='2800' data-y='-200' id='deltaspike_history'>
+          <div class='centered larger'>
+            History
+          </div>
+          <div class='smaller'>
+            <ul>
+              <li>Apache MyFaces CODI</li>
+              <li>Seam 3</li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-rotate='270' data-x='2800' data-y='700' id='deltaspike_history_2'>
+          <div class='centered'>
+            History (cont)
+          </div>
+          <div class='smallest'>
+            <ul>
+              <li>December 2011 - Entered Apache Incubation</li>
+              <li>February 2012 - Released v0.1-incubating</li>
+            </ul>
+            Releasing often ~2 months
+          </div>
+        </div>
+        <div class='slide step' data-x='-1000' data-y='2300' id='deltaspike_contributors_companies'>
+          <div class='centered'>
+            Contributors - Companies
+          </div>
+          <div class='smaller'>
+            <div class='left'>
+              <ul>
+                <li>Red Hat</li>
+                <li>Oracle</li>
+              </ul>
+            </div>
+            <div class='right'>
+              <ul>
+                <li>SoftwareMill</li>
+                <li>CDI Source</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='slide step' data-x='-200' data-y='2300' id='deltaspike_contributors_individuals'>
+          <div class='centered'>
+            Contributors - Individuals
+          </div>
+          <div class='smallest'>
+            <ul id='first-list'>
+              <li>Andy Gibson</li>
+              <li>Antoine Sabot-Durand</li>
+              <li>Arne Limburg</li>
+              <li>Cody Lerum</li>
+              <li>David Blevins</li>
+              <li>George Gastaldi</li>
+            </ul>
+            <ul id='second-list'>
+              <li>Gerhard Petracek</li>
+              <li>Jakob Korherr</li>
+              <li>John Ament</li>
+              <li>Mark Struberg</li>
+              <li>Matthias Wessendorf</li>
+              <li>Pete Royle</li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-x='800' data-y='2300' id='testing'>
+          Testing is a priority
+          <ul>
+            <li>unit</li>
+            <li>integration w/ Arquillian</li>
+          </ul>
+        </div>
+        <div class='slide step' data-x='1500' data-y='2300' id='compatibility'>
+          <div class='centered'>
+            Compatibility taken seriously
+          </div>
+          <div class='smallest'>
+            <div class='left'>
+              <ul>
+                <li>Weld</li>
+                <li>Open WebBeans</li>
+                <li>Resin (Coming soon)</li>
+              </ul>
+            </div>
+            <div class='right'>
+              <ul>
+                <li>AS7</li>
+                <li>WebLogic 12c</li>
+                <li>Glassfish</li>
+                <li>TomEE</li>
+                <li>WebSphere</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='slide step' data-x='-1000' data-y='2800' id='deltaspike_status'>
+          <div class='centered'>
+            Status
+          </div>
+          <div class='smallest'>
+            <ul>
+              <li>
+                <span class='underline'>v0.1-incubating</span>
+                <ul>
+                  <li>SE compatible</li>
+                  <li>Utilities</li>
+                  <li>Author tools</li>
+                </ul>
+              </li>
+              <li>
+                <span class='underline'>v0.2-incubating: releasing ~1-2 weeks</span>
+                <ul>
+                  <li>Security</li>
+                  <li>Exception Handling</li>
+                  <li>Additional core features</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-scale='0.1' data-x='-1200' data-y='2790' id='utilities'>
+          <div class='smaller'>
+            <ul>
+              <li>BeanProvider</li>
+              <li>BeanManagerProvider</li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-scale='0.1' data-x='-1200' data-y='2833' id='author_aids'>
+          <div class='smaller'>
+            <ul>
+              <li>Extension Activation</li>
+              <li>Bean Exclude</li>
+              <li>Stages</li>
+              <li>AnnotatedTypeBuilder</li>
+            </ul>
+          </div>
+        </div>
+        <div class='slide step' data-x='-300' data-y='2833' id='demo'>
+          <div class='centered'>
+            DEMO
+          </div>
+        </div>
+        <div class='slide step' data-rotate='90' data-scale='0.1' data-x='0' data-y='2900' id='Q_A'>
+          <div class='centered'>
+            Q&amp;A
+          </div>
+        </div>
+        <div class='step' data-scale='10' data-x='3000' data-y='1500' id='overview'></div>
+      </div>
+      <script type='text/javascript'>
+        //<![CDATA[
+          $(function() {
+            $('#jmpress').jmpress({
+              start: '#title',
+              notSupportedClass: 'jmpress-not-supported',
+            });
+          });
+        //]]>
+      </script>
+    </body>
+  </head>
+</html>

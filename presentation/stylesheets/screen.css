@@ -1,0 +1,436 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@font-face {
+  font-family: 'ChunkFiveRegular';
+  src: url("../fonts/Chunkfive-webfont.eot");
+  src: url("../fonts/Chunkfive-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Chunkfive-webfont.woff") format("woff"), url("../fonts/Chunkfive-webfont.ttf") format("truetype"), url("../fonts/Chunkfive-webfont.svg#ChunkFiveRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 20 */
+body {
+  min-height: 740px;
+  font-family: 'ChunkFiveRegular';
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3c3c), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #ff3c3c, #ffffff);
+  background-image: -moz-linear-gradient(top, #ff3c3c, #ffffff);
+  background-image: -o-linear-gradient(top, #ff3c3c, #ffffff);
+  background-image: -ms-linear-gradient(top, #ff3c3c, #ffffff);
+  background-image: linear-gradient(top, #ff3c3c, #ffffff);
+  pointer-events: none;
+  /* basic animations */
+  /* IMPRESS NOT SUPPORTED STYLES */
+}
+/* line 26 */
+body #jmpress {
+  pointer-events: auto;
+  /* COMMON STEP STYLES */
+  /* fade out inactive slides */
+}
+/* line 29 */
+body #jmpress #overview {
+  z-index: -1;
+  padding: 0;
+}
+/* line 1, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .larger {
+  font-size: 52px;
+}
+/* line 5, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #title {
+  width: 900px;
+  height: 740px;
+  background: url("../images/RHT_JBoss_background.png") no-repeat;
+}
+/* line 9, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #title #logo {
+  position: absolute;
+  top: 10%;
+}
+/* line 13, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #title #presentation_title {
+  position: absolute;
+  top: 30%;
+}
+/* line 17, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #title .presentation_info {
+  position: absolute;
+  font-size: 28px;
+  bottom: 30px;
+}
+/* line 25, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #what_cdi {
+  width: 600px;
+}
+/* line 29, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .what_cdi_detail {
+  width: 700px;
+}
+/* line 33, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #without_cdi, body #jmpress #life_with_cdi, body #jmpress #improve_dev_exp {
+  width: 900px;
+  font-size: 40px;
+}
+/* line 38, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #life_with_cdi:not(.active) {
+  opacity: 0;
+}
+/* line 42, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #improve_dev_exp {
+  height: 600px;
+}
+/* line 45, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #improve_dev_exp .dev_exp_child.active {
+  width: 700px;
+  font-size: 40px;
+}
+/* line 51, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #best_part img {
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+  border-radius: 22px;
+}
+/* line 56, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #what_can_do:not(.active) {
+  opacity: 0;
+}
+/* line 60, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #what_can_do {
+  width: 900px;
+}
+/* line 62, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #what_can_do ul li {
+  list-style-type: none;
+}
+/* line 67, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #secret_ingredient .contered {
+  position: absolutle;
+  top: 10%;
+}
+/* line 72, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .lifecycle {
+  width: 900px !important;
+}
+/* line 75, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .lifecycle:not(.active) {
+  opacity: 0 !important;
+}
+/* line 79, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .lifecycle ul {
+  list-style: none;
+  margin-top: 25px;
+}
+/* line 82, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress .lifecycle ul li {
+  background: url("../images/plus.png") no-repeat;
+  background-position: 0px 15px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+/* line 90, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #deltaspike_contributors_individuals {
+  margin-top: 150px;
+}
+/* line 92, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #deltaspike_contributors_individuals ul {
+  position: relative;
+}
+/* line 95, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #deltaspike_contributors_individuals #first-list {
+  left: -10px;
+}
+/* line 98, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #deltaspike_contributors_individuals #second-list {
+  top: -280px;
+  left: 400px;
+}
+/* line 39 */
+body #jmpress .slide {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 48px;
+  line-height: 1.5;
+  width: 700px;
+}
+/* line 54 */
+body #jmpress .slide {
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+/* line 61 */
+body #jmpress .slide ul {
+  list-style: none;
+}
+/* line 66 */
+body #jmpress .step:not(.active):not(.nested-active) {
+  opacity: 0.3;
+}
+/* line 70 */
+body #jmpress .underline {
+  text-decoration: underline;
+}
+/* line 74 */
+body #jmpress .centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+/* line 80 */
+body #jmpress .smaller {
+  font-size: 36px;
+}
+/* line 84 */
+body #jmpress .smallest {
+  font-size: 28px;
+}
+/* line 88 */
+body #jmpress .footnote {
+  font-family: Arial;
+  font-size: 12px;
+  position: absolute;
+  bottom: -20px;
+}
+/* line 95 */
+body #jmpress .left {
+  float: left;
+}
+/* line 99 */
+body #jmpress .right {
+  float: right;
+}
+/* line 104 */
+body .jmpress-on-overview .step {
+  opacity: 1;
+  cursor: pointer;
+}
+/* line 110 */
+body .will-appear {
+  opacity: 0;
+}
+/* line 114 */
+body .do-appear {
+  opacity: 1;
+}
+/* line 119 */
+body .will-drive-right, body .will-drive-left {
+  position: relative;
+  -webkit-transition: opacity 0.6s, left 1s;
+  -moz-transition: opacity 0.6s, left 1s;
+  -ms-transition: opacity 0.6s, left 1s;
+  -o-transition: opacity 0.6s, left 1s;
+  transition: opacity 0.6s, left 1s;
+  opacity: 0;
+}
+/* line 130 */
+body .will-drive-right {
+  left: -300px;
+}
+/* line 133 */
+body .will-drive-left {
+  left: 300px;
+}
+/* line 136 */
+body .will-drive-down, body .will-drive-up {
+  position: relative;
+  -webkit-transition: opacity 0.6s, top 1s;
+  -moz-transition: opacity 0.6s, top 1s;
+  -ms-transition: opacity 0.6s, top 1s;
+  -o-transition: opacity 0.6s, top 1s;
+  transition: opacity 0.6s, top 1s;
+  opacity: 0;
+}
+/* line 147 */
+body .will-drive-down {
+  top: -300px;
+}
+/* line 150 */
+body .will-drive-up {
+  top: 300px;
+}
+/* line 154 */
+body .do-drive-up, body .do-drive-down {
+  opacity: 1;
+  top: 0px;
+}
+/* line 158 */
+body .do-drive-right, body .do-drive-left {
+  opacity: 1;
+  left: 0px;
+}
+/* line 163 */
+body .will-expand {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 1px) scale(0.7, 1);
+  -moz-transform: translate3d(0, 0, 1px) scale(0.7, 1);
+  -ms-transform: translate3d(0, 0, 1px) scale(0.7, 1);
+  -o-transform: translate3d(0, 0, 1px) scale(0.7, 1);
+  transform: translate3d(0, 0, 1px) scale(0.7, 1);
+}
+/* line 179 */
+body .do-expand {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -moz-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -ms-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -o-transform: translate3d(0, 0, 1px) scale(1, 1);
+  transform: translate3d(0, 0, 1px) scale(1, 1);
+}
+/* line 189 */
+body .has-expand {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+/* line 198 */
+body .will-fade {
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 0;
+}
+/* line 207 */
+body .will-fade-slow {
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -ms-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+  opacity: 0;
+}
+/* line 216 */
+body .will-fade-fast {
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+/* line 226 */
+body .do-fade, body .do-fade-slow, body .do-fade-fast {
+  opacity: 1;
+}
+/* line 231 */
+body .will-warp-right, body .will-warp-left {
+  position: relative;
+  -webkit-transition: opacity 0.2s, left 0.5s ease-in-out;
+  -moz-transition: opacity 0.2s, left 0.5s ease-in-out;
+  -ms-transition: opacity 0.2s, left 0.5s ease-in-out;
+  -o-transition: opacity 0.2s, left 0.5s ease-in-out;
+  transition: opacity 0.2s, left 0.5s ease-in-out;
+  opacity: 0;
+}
+/* line 242 */
+body .will-warp-right {
+  left: -600px;
+}
+/* line 245 */
+body .will-warp-left {
+  left: 600px;
+}
+/* line 248 */
+body .will-warp-down, body .will-warp-up {
+  position: relative;
+  -webkit-transition: opacity 0.2s, top 0.5s ease-in-out;
+  -moz-transition: opacity 0.2s, top 0.5s ease-in-out;
+  -ms-transition: opacity 0.2s, top 0.5s ease-in-out;
+  -o-transition: opacity 0.2s, top 0.5s ease-in-out;
+  transition: opacity 0.2s, top 0.5s ease-in-out;
+  opacity: 0;
+}
+/* line 259 */
+body .will-warp-down {
+  top: -600px;
+}
+/* line 262 */
+body .will-warp-up {
+  top: 600px;
+}
+/* line 266 */
+body .do-warp-up, body .do-warp-down {
+  opacity: 1;
+  top: 0px;
+}
+/* line 270 */
+body .do-warp-right, body .do-warp-left {
+  opacity: 1;
+  left: 0px;
+}
+/* line 275 */
+body .will-zoom {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 1px) scale(10, 10);
+  -moz-transform: translate3d(0, 0, 1px) scale(10, 10);
+  -ms-transform: translate3d(0, 0, 1px) scale(10, 10);
+  -o-transform: translate3d(0, 0, 1px) scale(10, 10);
+  transform: translate3d(0, 0, 1px) scale(10, 10);
+}
+/* line 291 */
+body .do-zoom {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -moz-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -ms-transform: translate3d(0, 0, 1px) scale(1, 1);
+  -o-transform: translate3d(0, 0, 1px) scale(1, 1);
+  transform: translate3d(0, 0, 1px) scale(1, 1);
+}
+/* line 301 */
+body .has-zoom {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+/* line 310 */
+body .fallback-message {
+  font-family: sans-serif;
+  line-height: 1.3;
+  display: none;
+  width: 780px;
+  padding: 10px 10px 0;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: 1px solid #E4C652;
+  background: #EEDC94;
+}
+/* line 324 */
+body .fallback-message p {
+  margin-bottom: 10px;
+}
+/* line 328 */
+body .jmpress-not-supported .step {
+  position: relative;
+  opacity: 1;
+  margin: 20px auto;
+}
+/* line 334 */
+body .jmpress-not-supported .fallback-message {
+  display: block;
+}
