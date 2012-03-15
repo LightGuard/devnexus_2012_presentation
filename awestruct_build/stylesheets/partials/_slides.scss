@@ -35,6 +35,10 @@
   font-size: 40px;
 }
 
+#life_with_cdi:not(.active) {
+  opacity: 0;
+}
+
 #improve_dev_exp {
   height: 600px;
 
@@ -44,3 +48,55 @@
   }
 }
 
+#best_part  img {
+  @include single-box-shadow;
+  border-radius: 22px;
+}
+
+#what_can_do:not(.active) {
+  opacity: 0;
+}
+
+#what_can_do {
+  width: 900px;
+  ul li {
+    list-style-type: none;
+  }
+}
+
+#secret_ingredient .contered {
+  position: absolutle;
+  top: 10%;
+}
+
+.lifecycle {
+  width: 900px !important;
+}
+.lifecycle:not(.active) {
+  opacity: 0 !important;
+}
+
+.lifecycle ul {
+  list-style: none;
+  margin-top: 25px;
+  li {
+    background: url("../images/plus.png") no-repeat;
+    background-position: 0px 15px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+  }
+}
+
+#deltaspike_contributors_individuals {
+  margin-top: 150px;
+  ul {
+    position: relative;
+  }
+  #first-list {
+    left: -10px;
+  }
+  #second-list {
+    top: -280px;
+    left: 400px;
+  }
+}

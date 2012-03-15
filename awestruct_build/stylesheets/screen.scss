@@ -47,7 +47,7 @@ body {
 
         font-size: 48px;
         line-height: 1.5; 
-        min-width: 600px;
+        width: 700px;
     }
 
     /* fade out inactive slides */ 
@@ -57,6 +57,10 @@ body {
         -ms-transition:     opacity 1s;
         -o-transition:      opacity 1s;
         transition:         opacity 1s;
+
+        ul {
+          list-style: none;
+        }
     }
 
     .step:not(.active):not(.nested-active) {
@@ -72,6 +76,29 @@ body {
       margin-right: auto;
       text-align: center;
     } 
+
+    .smaller {
+      font-size: 36px;
+    }
+
+    .smallest {
+      font-size: 28px;
+    }
+
+    .footnote {
+      font-family: Arial;
+      font-size: 12px;
+      position: absolute;
+      bottom: -20px;
+    }
+
+    .left {
+      float:left
+    }
+
+    .right {
+      float:right
+    }
   }
 
   .jmpress-on-overview .step {
