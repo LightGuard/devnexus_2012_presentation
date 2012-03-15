@@ -149,6 +149,14 @@ body #jmpress #deltaspike_contributors_individuals #second-list {
   top: -280px;
   left: 400px;
 }
+/* line 103, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #apache_resources {
+  width: 900px;
+}
+/* line 105, /home/jporter/presentation_artifacts/devnexus_2012/awestruct_build/stylesheets/partials/_slides.scss */
+body #jmpress #apache_resources .extra_small {
+  font-size: 20px;
+}
 /* line 39 */
 body #jmpress .slide {
   padding: 10px;

@@ -23,11 +23,12 @@
           also handle it.
       #jmpress
         ~ content
-        #overview.step{:data=>{:x=>"3000", :y=>"1500", :scale=>"10"}} 
+        #overview.step{:data=>{:x=>"0", :y=>"0", :scale=>"10"}} 
       :javascript
         $(function() {
           $('#jmpress').jmpress({
             start: '#title',
             notSupportedClass: 'jmpress-not-supported',
+            toggle: 27,
           });
         });
