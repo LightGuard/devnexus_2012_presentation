@@ -45,20 +45,16 @@ public class DevelopmentGitHubUserService implements UserService {
 
     @Override
     public User getUserByUsername(String userName) {
-        if ("LightGuard".equals(userName)) {
+        if ("lightguard".equals(userName.toLowerCase())) {
             final User lightguard = new User();
             final Calendar createdAt = Calendar.getInstance();
-            createdAt.set(2008, 9, 20, 16, 3, 43);
-            lightguard.setCreatedAt(createdAt.getTime());
-            lightguard.setFullname("Jason Porter");
-            lightguard.setFollowersCount(21);
-            lightguard.setPublicRepoCount(52);
+            lightguard.setName("Jason Porter");
             lightguard.setUsername("LightGuard");
             lightguard.setCompany("Red Hat");
 
             return lightguard;
         } else {
-            return new User();
+            return null;
         }
     }
 

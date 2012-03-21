@@ -1,0 +1,5 @@
+This is the simple demo created for DevNexus 2012 to demonstrate some of the 
+features of DeltaSpike v0.1. If you wish to build and use this demo, please
+clone https://github.com/nabeelmukhtar/github-java-sdk.git and apply the 
+patch I have in the repo. This will allow it to be built with maven and also
+to build the examples using ant.

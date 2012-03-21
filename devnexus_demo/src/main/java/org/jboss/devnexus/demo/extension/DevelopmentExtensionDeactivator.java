@@ -15,34 +15,23 @@
  * limitations under the License.
  */
 
-package org.jboss.devnexus.demo.ui;
+package org.jboss.devnexus.demo.extension;
 
-import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.enterprise.inject.Typed;
 
-import com.github.api.v2.schema.User;
 import org.apache.deltaspike.core.api.projectstage.ProjectStage;
+import org.apache.deltaspike.core.spi.activation.ClassDeactivator;
+import org.apache.deltaspike.core.spi.activation.Deactivatable;
 import org.apache.deltaspike.core.util.ProjectStageProducer;
 
-@Model
-public class UserBackingBean {
-
-    private User user;
-
-    public void findUserListener() {
-        if (ProjectStage.Development.equals(ProjectStageProducer.getInstance().getProjectStage())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Using development user service."));
-        } else if (ProjectStage.Production.equals(ProjectStageProducer.getInstance().getProjectStage())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Using production user service."));
+@Typed()
+public class DevelopmentExtensionDeactivator implements ClassDeactivator {
+    @Override
+    public Boolean isActivated(Class<? extends Deactivatable> targetClass) {
+        if (targetClass.equals(AddGithubClassesExtension.class) &&
+                ProjectStageProducer.getInstance().getProjectStage().equals(ProjectStage.Development)) {
+            return false;
         }
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+        return true;
     }
 }

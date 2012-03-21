@@ -1,0 +1,81 @@
+diff --git a/build.xml b/build.xml
+index b27788e..731f6d6 100644
+--- a/build.xml
++++ b/build.xml
+@@ -33,7 +33,7 @@
+             <fileset dir="core/src/test/resources" excludes="**/*.launch, **/*.java"/>
+         </copy>
+         <copy includeemptydirs="false" todir="target">
+-            <fileset dir="examples/src/resources" excludes="**/*.launch, **/*.java"/>
++            <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
+         </copy>
+         <copy includeemptydirs="false" todir="target">
+             <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
+@@ -68,7 +68,7 @@
+             <classpath refid="github-java-sdk.classpath"/>
+         </javac>
+         <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
+-            <src path="examples/src/resources"/>
++            <src path="examples/src/java"/>
+             <classpath refid="github-java-sdk.classpath"/>
+         </javac>
+         <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
+diff --git a/examples/src/java/com/github/api/v2/services/example/UserApiSample.java b/examples/src/java/com/github/api/v2/services/example/UserApiSample.java
+index 740a09d..39d2572 100644
+--- a/examples/src/java/com/github/api/v2/services/example/UserApiSample.java
++++ b/examples/src/java/com/github/api/v2/services/example/UserApiSample.java
+@@ -36,11 +36,13 @@ public class UserApiSample {
+ 	public static void main(String[] args) {
+ 		GitHubServiceFactory factory = GitHubServiceFactory.newInstance();
+ 		UserService service = factory.createUserService();
++    /*
+ 		List<User> users = service.searchUsersByName("john");
+ 		for (User user : users) {
+ 			printResult(user);			
+ 		}
+-		User user = service.getUserByEmail("nabeelmukhtar@yahoo.com");
++    */
++		User user = service.getUserByUsername("LightGuard");
+ 		printResult(user);
+ 	}
+     
+diff --git a/schema/pom.xml b/schema/pom.xml
+index f66491d..62c7fb0 100644
+--- a/schema/pom.xml
++++ b/schema/pom.xml
+@@ -7,4 +7,12 @@
+   </parent>
+   <artifactId>github-java-schema</artifactId>
+   <packaging>jar</packaging>
+-</project>
+\ No newline at end of file
++  <dependencies>
++    <dependency>
++      <groupId>com.google.code.gson</groupId>
++      <artifactId>gson</artifactId>
++      <version>1.4</version>
++      <scope>compile</scope>
++    </dependency>
++  </dependencies>
++</project>
+diff --git a/schema/src/main/java/com/github/api/v2/schema/Discussion.java b/schema/src/main/java/com/github/api/v2/schema/Discussion.java
+index 00a5122..873e4ae 100644
+--- a/schema/src/main/java/com/github/api/v2/schema/Discussion.java
++++ b/schema/src/main/java/com/github/api/v2/schema/Discussion.java
+@@ -23,15 +23,13 @@ import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ 
+-import com.github.api.v2.services.constant.ApplicationConstants;
+-
+ /**
+  * The Class Discussion.
+  */
+ public class Discussion extends SchemaEntity {
+ 	
+ 	/** The Constant COMMENT_DATE_FORMAT. */
+-	private static final SimpleDateFormat COMMENT_DATE_FORMAT = new SimpleDateFormat(ApplicationConstants.DATE_FORMAT);
++	private static final SimpleDateFormat COMMENT_DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss Z");
+ 	
+ 	/** The Constant COMMIT_DATE_FORMAT. */
+ 	private static final SimpleDateFormat COMMIT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");

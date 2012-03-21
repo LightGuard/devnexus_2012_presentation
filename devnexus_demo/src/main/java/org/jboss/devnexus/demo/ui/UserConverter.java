@@ -45,6 +45,9 @@ public class UserConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        return ((User) value).getUsername();
+        if (value != null)
+            return ((User) value).getUsername();
+        else
+            return "";
     }
 }

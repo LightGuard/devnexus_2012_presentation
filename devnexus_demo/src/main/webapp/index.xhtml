@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>DevNexus 2011 DeltaSpike Example</title>
@@ -15,11 +16,23 @@
     <h:messages id="messages"/>
 
     <h:form id="userForm">
-        <h:inputText id="userInput" value="#{userBackingBean.user}">
+        <h:inputText id="userInput" value="#{userBackingBean.user}" converterMessage="No user found">
             <f:converter converterId="userConverter" />
         </h:inputText>
-        <br/>
-        <h:outputText value="User found: #{userBackingBean.user.fullname}"/>
+        <h:commandButton id="submitButton" value="Submit" actionListener="#{userBackingBean.findUserListener}" />
+        <br/><br/>
+        <h:panelGroup id="userFoundPanel" rendered="#{userBackingBean.user != null}" layout="block">
+            <ui:fragment rendered="#{userBackingBean.user.gravatarId != null}">
+                <img src="https://secure.gravatar.com/avatar/#{userBackingBean.user.gravatarId}" alt="Gravatar"
+                     style="float: left"/>
+            </ui:fragment>
+            Name: <h:outputText value="#{userBackingBean.user.name}"/>
+            <br />
+            Blog: <h:link value="#{userBackingBean.user.blog}">#{userBackingBean.user.blog}</h:link>
+            <br />
+            Company: #{userBackingBean.user.company}
+            <br />
+        </h:panelGroup>
     </h:form>
 </h:body>
 

@@ -22,27 +22,19 @@ import javax.enterprise.inject.spi.AnnotatedType;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.BeforeBeanDiscovery;
 import javax.enterprise.inject.spi.Extension;
-import javax.enterprise.inject.spi.ProcessAnnotatedType;
 
-import com.github.api.v2.services.UserService;
 import com.github.api.v2.services.impl.UserServiceImpl;
-import org.apache.deltaspike.core.api.projectstage.ProjectStage;
-import org.apache.deltaspike.core.spi.activation.ClassDeactivator;
 import org.apache.deltaspike.core.spi.activation.Deactivatable;
-import org.apache.deltaspike.core.util.ProjectStageProducer;
+import org.apache.deltaspike.core.util.ClassDeactivation;
 
 public class AddGithubClassesExtension implements Extension, Deactivatable {
     public void beforeBeanDiscovery(@Observes BeforeBeanDiscovery event, BeanManager bm) {
-        if (ProjectStage.Production.equals(ProjectStageProducer.getInstance().getProjectStage())) {
+
+        // Extensions can check to see if
+        // they are activated and react accordingly
+        if (ClassDeactivation.isActivated(this.getClass())) {
             AnnotatedType<?> at = bm.createAnnotatedType(UserServiceImpl.class);
             event.addAnnotatedType(at);
         }
     }
-
-//    public <T> void processAnnotatedType(@Observes ProcessAnnotatedType<T> event) {
-//        if (event.getAnnotatedType().getJavaClass().equals(UserServiceImpl.class)
-//                && !ProjectStage.Production.equals(ProjectStageProducer.getInstance().getProjectStage())) {
-//            event.veto();
-//        }
-//    }
 }
